@@ -1,0 +1,17 @@
+version: "3"
+services:
+  webserver1:
+    image: apache_modsecurity
+    ports:
+    - "80:80"
+    volumes: 
+      - "/home/nawak/apache_site.conf:/etc/apache2/sites-enabled/000-default.conf"
+      - "/home/nawak/index.html:/var/www/html/index.html"
+    networks:
+      webnet:
+        aliases:
+        - webserver1
+
+networks:
+        webnet:
+
